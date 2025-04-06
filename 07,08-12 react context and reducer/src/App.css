@@ -1,0 +1,11 @@
+*{
+  background-color: whitesmoke;
+  color: black;
+}
+.card-components{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 5px;
+}
