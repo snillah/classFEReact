@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SPA and SSR</title>
+    <style>
+      nav {
+        display: flex;
+      }
+
+      ul {
+        display: flex;
+        list-style-type: none;
+        gap: 2rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <header>
+        <nav>
+          <ul>
+            <li>
+              <a href="#home">Home</a>
+            </li>
+            <li>
+              <a href="#about">About</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <section id="home">
+        <div>
+          <h3>Home Page</h3>
+          <div>
+            <img src="./agenda.jpeg" alt="" />
+            <img src="./spa explore MPA.jpeg" alt="" />
+            <img src="./SPA.png" alt="" />
+          </div>
+        </div>
+      </section>
+      <section id="about">
+        <div>
+          <h3>About Page</h3>
+          <button id="runBtn">Add 10000 Elements</button>
+          <div id="container"></div>
+        </div>
+      </section>
+    </div>
+    <script>
+      const runBtn = document.getElementById("runBtn");
+      console.log(runBtn);
+      const container = document.getElementById("container");
+      
+      function createElements() {
+        // starts a timer
+        console.log("Dom Thrashing has begun...");
+        for (let i = 0; i < 10000; i++) {
+          const newEl = document.createElement("div");
+          newEl.textContent = `Element ${i + 1}`;
+          container.appendChild(newEl);
+        }
+        console.timeEnd("DOM Thrashing has ended ...");
+      }
+      runBtn.addEventListener("click", () => {
+        alert("working");
+        createElements()
+      });
+    </script>
+  </body>
+</html>

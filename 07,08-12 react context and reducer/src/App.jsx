@@ -4,7 +4,7 @@ import "./App.css";
 //other
 import photoUseState from "./assets/useState(0)().png";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import Badge from '@mui/material/Badge';
+import Badge from "@mui/material/Badge";
 import {
   AppBar,
   Box,
@@ -17,15 +17,24 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
+import UserAreaa from "./components/OTT-user";
 
 function App() {
-  const [data, setData] = useState(1);
+  const [otgData, setOtgData] = useState("data passing");
   return (
     <div>
+      <User data={otgData}setOtg={setOtgData}/>
     </div>
   );
 }
 
 export default App;
 
-
+function User({data,setOtg=()=>{}}) {
+  return (
+    <div>
+      <h1>User</h1>
+      <UserAreaa data={data} setOtg={setOtg} />
+    </div>
+  );
+}
