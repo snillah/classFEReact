@@ -4,13 +4,15 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router";
 import "./index.css";
 import App from "./App.jsx";
+import { LoginProvider } from "./components/pages/context-login/loginContextProvider";
 
 createRoot(document.getElementById("root")).render(
-
   <StrictMode>
-  {/* step-2 */}
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    {/* step-2 */}
+    <LoginProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </LoginProvider>
   </StrictMode>
 );

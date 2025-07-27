@@ -7,6 +7,9 @@ import HomeLayout from "./components/pages/basic-route/LayoutPages/home-layout";
 import AboutUs from "./components/pages/basic-route/aboutus";
 import ArticleDetailPage from "./components/pages/basic-route/LayoutPages/article-detail-page";
 import ArticleLayout from "./components/pages/basic-route/LayoutPages/article-layout";
+import Login from "./components/pages/context-login/loginPage";
+import { LoginProvider } from "./components/pages/context-login/loginContextProvider";
+import ProfilePage from "./components/pages/context-login/profilePage";
 
 function App() {
   return (
@@ -14,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomeLayout />}></Route>
+          <Route path={"/profile"} element={<ProfilePage />}></Route>
           <Route path={"/about-us"} element={<AboutUs />}></Route>
           <Route path="/article" element={<ArticleLayout />}></Route>
           {/* dynamically return -> article Detail page //use : for define the dynamic value*/}
@@ -22,8 +26,10 @@ function App() {
             element={<ArticleDetailPage />}
           ></Route>
         </Route>
-        <Route path="/*" element={<NotFoundPage />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/*" element={<NotFoundPage />}></Route>
       </Routes>
+     
     </>
   );
 }

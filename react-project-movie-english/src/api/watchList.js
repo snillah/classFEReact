@@ -1,7 +1,6 @@
-import productDB from './db.js'
 import axios from "axios";
 
-const productDB = axios.create({
+const productApi = axios.create({
     baseURL:'https://dummyjson.com/'
 });
 
@@ -9,10 +8,10 @@ const productDB = axios.create({
 
 
 // GET Product List
-export const getProductList =()=> productDB.get("products");
+export const getProductList =()=> productApi.get("products");
 // post
-export const addCartList =()=> productDB.get("/");
+export const addCartList =()=> productApi.get("/");
 // update
-export const updateCartList =()=> productDB.get("/products");
+export const updateCartList =()=> productApi.get("/products");
 //delete
-export const deleteCartList =()=> productDB.get("/");
+export const deleteCartList =()=> productApi.get("/");

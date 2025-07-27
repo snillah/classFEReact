@@ -10,6 +10,12 @@ import MovieDetailPage from "./pages/homeLayout/moviePage/movie-details-page.jsx
 import WatchDetailPage from "./pages/homeLayout/watchListPage/watch-list-page.jsx";
 import WatchListPage from "./pages/homeLayout/watchListPage/watch-list-page.jsx";
 
+function Dashboard() {
+    return (
+        <h1>Dashboard</h1>
+    )
+}
+
 function App() {
 
 /*
@@ -20,20 +26,10 @@ function App() {
 
 */
 
-
-
   return (
-    // <Routes>
-    //     <Route exact path="/" element={<Navigate to ="/movies" replace/>} >
-    //       <Route index element={<Home/>}></Route>
-    //       <Route path={"/article"} element={<ArticlePage/>}></Route>
-    //       <Route path={"/article/articleId:id"} element={<ArticleDetailsPage/>}></Route>
-    //     </Route>
-    //     <Route  path="*" element={<NotFoundPage/>}></Route>
-    // </Routes>
     <Routes>
         <Route exact path="/" element={<Navigate to ="/movies" replace/>} >
-          <Route path="/movies" element={<MovieSearchPage/>}></Route>
+          <Route path="/movies" element={<Dashboard/>}></Route>
           <Route path="/movies/:id" element={<MovieDetailPage/>}></Route>
           <Route path="/watchList" element={<WatchListPage/>}></Route>
           <Route path="/watchList" element={<WatchDetailPage/>}></Route>
@@ -46,3 +42,12 @@ function App() {
 
 export default App;
 
+
+// <Routes>
+    //     <Route exact path="/" element={<Navigate to ="/movies" replace/>} >
+    //       <Route index element={<Home/>}></Route>
+    //       <Route path={"/article"} element={<ArticlePage/>}></Route>
+    //       <Route path={"/article/articleId:id"} element={<ArticleDetailsPage/>}></Route>
+    //     </Route>
+    //     <Route  path="*" element={<NotFoundPage/>}></Route>
+    // </Routes>

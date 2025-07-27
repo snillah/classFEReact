@@ -13,10 +13,9 @@ import Navigationbar from "../../../components/UI/navigationBar";
 import SearchBar from "../../../components/UI/searchBar";
 import Loader from "../../../components/UI/loader";
 import ErrorMessage from "../../../components/UI/errorMessage";
-import productDB from "../../../api/db";
 import MovieDetailPage from "./movie-details-page";
 import ProductCart from "../../../components/UI/product-card";
-import { addCartList } from "../../../api/watchList";
+import { addCartList, getProductList } from "../../../api/watchList";
 
 function MovieSearchPage(){
     const navigate = useNavigate();
@@ -30,16 +29,18 @@ function MovieSearchPage(){
         setLoading(true)
         try{
             // const response = await productDB.get("/",{params:{s:searchQuery}});
-            //
-
+            const response = await getProductList()
+            console.log()
             setMovies(response.data.Search)
         }catch(err){
             setError("could fetch the movie")
+            console.log(err)
         }finally{
             setLoading(false)
         }
     }
 
+    console.log("I movie search page working")
     const handleSearch = (searchQuery) => {
         navigate(`/products/${searchQuery}`)
         performSearch(searchQuery)
@@ -61,7 +62,8 @@ function MovieSearchPage(){
         <Navigationbar/>
         <SearchBar onSearch={handleSearch}/>
         {isLoading&&<Loader/>}
-        {isError&&<ErrorMessage />}
+        {isError&&<ErrorMessage message ={isError}/>}
+        <h2>Hi i am there</h2>
         <div style={{display:"flex",flexWrap:"wrap"}}>
             {
                 movies.map((movie,index)=>{
