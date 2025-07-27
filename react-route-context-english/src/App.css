@@ -1,0 +1,25 @@
+:root{
+
+}
+
+.app-layout{
+    height:100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to right,rgb(251, 237, 162),rgb(177, 240, 241));
+}
+.app-layout header{
+    min-height: 10%;
+    display: flex;
+    gap: 50%;
+}
+.app-layout header nav{
+    display: flex;
+    gap:10px;
+}
+.app-layout main{
+    min-height: 80%;
+}
+.app-layout footer{
+    min-height: 10%;
+}
