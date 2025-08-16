@@ -1,5 +1,7 @@
 import { Link, useParams } from "react-router";
 import { getArticleById } from "../../../../data/articles";
+import CommentForm from "./comment-form-page";
+import { useState } from "react";
 
 /*
 URL path will contain : article/:articleId
@@ -13,6 +15,9 @@ function ArticleDetailPage() {
   // the articleId is a string value we have convert to number;
   console.log("Id", articleId);
   const article = getArticleById(articleId);
+// [{id:timeStame,text:""}]
+const [comments,setcomments] =useState([]);
+
   // if(article === undefined) instead of that
   if (!article) {
     return (
@@ -22,12 +27,33 @@ function ArticleDetailPage() {
       </div>
     );
   }
+
+const handleAddComment = (commentText) =>{
+  const newComment = {
+    id:Date.now(),
+    text:commentText,
+  }
+  setcomments([...comments,newComment]);
+}
+
+
+
   return (
     <>
       <h1>{article?.title}</h1>
       <p>{article?.content}</p>
       <p>Word Count : {article?.wordCount}</p>
+      <div>
+        <h2>Comments</h2>
+        <ul>
+          {comments.map(comment=>(
+            <li key={comment.id}>{comment.text}</li>
+          ))}
+        </ul>
+        <CommentForm onAddComment={handleAddComment}/>
+      </div>
       <Link to="/article">Return to all articles</Link>
+
     </>
   );
 }

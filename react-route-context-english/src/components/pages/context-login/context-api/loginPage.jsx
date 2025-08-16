@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import { useLogin } from "./loginContextProvider";
 
 
-function Login({setter}){
+function ContextLogin(){
 
     const [userName,setUserName] = useState("");
+    const {setUser} = useLogin()
     const navigate = useNavigate();
 
     const handleSumbit = (e) =>{
         e.preventDefault();
         console.log("name",userName)
-        setter({userName:userName})
-        navigate(`/profile`)
+        setUser({userName:userName})
+        navigate(`/profile-context`)
 
     }
 
@@ -36,4 +38,4 @@ function Login({setter}){
     )
 }
 
-export default Login;
+export default ContextLogin;

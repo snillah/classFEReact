@@ -28,12 +28,11 @@ function App() {
 
   return (
     <Routes>
-        <Route exact path="/" element={<Navigate to ="/movies" replace/>} >
-          <Route path="/movies" element={<Dashboard/>}></Route>
+        <Route exact path="/" element={<Navigate to ="/movies" replace/>} ></Route>
+          <Route path="/movies" element={<MovieSearchPage/>}></Route>
           <Route path="/movies/:id" element={<MovieDetailPage/>}></Route>
           <Route path="/watchList" element={<WatchListPage/>}></Route>
           <Route path="/watchList" element={<WatchDetailPage/>}></Route>
-        </Route>
         <Route  path="*" element={<NotFoundPage/>}></Route>
     </Routes>
 

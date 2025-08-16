@@ -16,9 +16,9 @@ function HomeLayout () {
             <div>Hi New Work</div>
             <div>
                 {
-                    recentArticles.map(article =>{
+                    recentArticles.map((article,index) =>{
                         return(
-                            <div key={articles?.id}>
+                            <div key={index}>
                                 <h3><Link to={`/article/${article?.id}`}>{article?.title}</Link></h3>
                             </div>
                         )

@@ -40,7 +40,6 @@ function MovieSearchPage(){
         }
     }
 
-    console.log("I movie search page working")
     const handleSearch = (searchQuery) => {
         navigate(`/products/${searchQuery}`)
         performSearch(searchQuery)

@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import { useLogin } from "./loginContextProvider";
 
 
-function ProfilePage({user}){
+function ContextProfilePage(){
+
+    const {user} = useLogin();
+
     console.log("name",user,!user)
     if(!user) return <p>Please Login First</p>
 
@@ -24,4 +28,4 @@ function ProfilePage({user}){
     )
 }
 
-export default ProfilePage
+export default ContextProfilePage;
